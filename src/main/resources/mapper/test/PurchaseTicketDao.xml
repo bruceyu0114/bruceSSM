@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.bruce.dao.test.PurchaseTicketDao" >
+    <resultMap id="purchaseTicket" type="com.bruce.model.test.PurchaseTicket">
+        <id property="id" column="id"  jdbcType="BIGINT" />
+        <result property="picketId" column="picket_id" jdbcType="VARCHAR" />
+        <result property="picketName" column="picket_name" jdbcType="VARCHAR"/>
+        <result property="picketCode" column="picket_code" jdbcType="VARCHAR" />
+        <result property="pruductName" column="pruduct_name" jdbcType="VARCHAR" />
+        <result property="pruductId" column="pruduct_id" jdbcType="VARCHAR"/>
+        <result property="generateDate" column="generate_date" jdbcType="VARCHAR" />
+        <result property="overdayDate" column="overday_date" jdbcType="VARCHAR" />
+        <result property="statues" column="statues" jdbcType="VARCHAR"/>
+        <result property="phonenum" column="phonenum" jdbcType="BIGINT" />
+    </resultMap>
+
+    <select id="getAllPurchaseTicketList" resultMap="purchaseTicket">
+        select * from purchase_ticket
+    </select>
+
+    <select id="findOne" resultMap="purchaseTicket" parameterType="java.lang.Long">
+        select * from purchase_ticket where id = #{id}
+    </select>
+
+</mapper>
